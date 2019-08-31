@@ -59,12 +59,15 @@ namespace OCTM.UI.Web
             });
 
             services.AddAutoMapperSetup();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
 
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("CanWriteCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
                 options.AddPolicy("CanRemoveCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
+
+                options.AddPolicy("CanWriteContainerShipData", policy => policy.Requirements.Add(new ClaimRequirement("ContainerShips", "Write")));
+                options.AddPolicy("CanRemoveContainerShipData", policy => policy.Requirements.Add(new ClaimRequirement("ContainerShips", "Remove")));
             });
 
             // Adding MediatR for Domain Events and Notifications

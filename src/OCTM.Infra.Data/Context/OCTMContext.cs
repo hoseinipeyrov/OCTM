@@ -16,11 +16,14 @@ namespace OCTM.Infra.Data.Context
         }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<ContainerShip> ContainerShips { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerMap());
-                        
+            modelBuilder.ApplyConfiguration(new ContainerShipMap());
+
+
             base.OnModelCreating(modelBuilder);
         }
 

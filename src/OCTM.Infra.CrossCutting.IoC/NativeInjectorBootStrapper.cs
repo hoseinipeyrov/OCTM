@@ -39,6 +39,7 @@ namespace OCTM.Infra.CrossCutting.IoC
 
             // Application
             services.AddScoped<ICustomerAppService, CustomerAppService>();
+            services.AddScoped<IContainerShipAppService, ContainerShipAppService>();
 
             // Domain - Events
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
@@ -46,20 +47,30 @@ namespace OCTM.Infra.CrossCutting.IoC
             services.AddScoped<INotificationHandler<CustomerUpdatedEvent>, CustomerEventHandler>();
             services.AddScoped<INotificationHandler<CustomerRemovedEvent>, CustomerEventHandler>();
 
+            services.AddScoped<INotificationHandler<ContainerShipRegisteredEvent>, ContainerShipEventHandler>();
+            services.AddScoped<INotificationHandler<ContainerShipUpdatedEvent>, ContainerShipEventHandler>();
+            services.AddScoped<INotificationHandler<ContainerShipRemovedEvent>, ContainerShipEventHandler>();
+
             // Domain - Commands
             services.AddScoped<IRequestHandler<RegisterNewCustomerCommand, bool>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateCustomerCommand, bool>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveCustomerCommand, bool>, CustomerCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewContainerShipCommand, bool>, ContainerShipCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateContainerShipCommand, bool>, ContainerShipCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveContainerShipCommand, bool>, ContainerShipCommandHandler>();
+
             // Infra - Data
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IContainerShipRepository, ContainerShipRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<OCTMContext>();
+            services.AddDbContext<OCTMContext>();
 
             // Infra - Data EventSourcing
             services.AddScoped<IEventStoreRepository, EventStoreSQLRepository>();
             services.AddScoped<IEventStore, SqlEventStore>();
-            services.AddScoped<EventStoreSQLContext>();
+            services.AddDbContext<EventStoreSQLContext>();
 
             // Infra - Identity Services
             services.AddTransient<IEmailSender, AuthEmailMessageSender>();

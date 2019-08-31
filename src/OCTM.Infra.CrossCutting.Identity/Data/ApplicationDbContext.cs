@@ -26,7 +26,7 @@ namespace OCTM.Infra.CrossCutting.Identity.Data
                 .Build();
 
             // define the database to use
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("IdentityConnection"));
         }
     }
 }
