@@ -4,7 +4,7 @@ using System.Linq;
 using OCTM.Domain.Core.Events;
 using Newtonsoft.Json;
 
-namespace OCTM.Application.EventSourcedNormalizers
+namespace OCTM.Application.EventSourcedNormalizers.ContainerShip
 {
     public class ContainerShipHistory
     {

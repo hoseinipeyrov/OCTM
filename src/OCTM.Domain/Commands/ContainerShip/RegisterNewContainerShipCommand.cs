@@ -3,9 +3,9 @@ using OCTM.Domain.Validations;
 
 namespace OCTM.Domain.Commands
 {
-    public class RegisterNewContainerShipCommand : ContainerShipCommand
+    public class CreateNewContainerShipCommand : ContainerShipCommand
     {
-        public RegisterNewContainerShipCommand(string name, int capacity, string color)
+        public CreateNewContainerShipCommand(string name, int capacity, string color)
         {
             Name = name;
             Capacity = capacity;

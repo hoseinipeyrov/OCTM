@@ -2,7 +2,7 @@
 
 namespace OCTM.Domain.Validations
 {
-    public class RegisterNewContainerShipCommandValidation : ContainerShipValidation<RegisterNewContainerShipCommand>
+    public class RegisterNewContainerShipCommandValidation : ContainerShipValidation<CreateNewContainerShipCommand>
     {
         public RegisterNewContainerShipCommandValidation()
         {

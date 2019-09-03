@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OCTM.UI.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ContainerShipController : BaseController
     {
         private readonly IContainerShipAppService _containerShipAppService;
@@ -48,11 +48,18 @@ namespace OCTM.UI.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = "CanWriteContainerShipData")]
-        [Route("containerShip-management/register-new")]
-        public IActionResult Create()
+        //[Authorize(Policy = "CanWriteContainerShipData")]
+        [Route("containerShip-management/create-new")]
+        public string Create()
         {
-            return View();
+            ContainerShipViewModel containerShipViewModel = new ContainerShipViewModel
+            {
+                Name = "adryan darya",
+                Capacity = 20,
+                Color = "red"
+            };
+            _containerShipAppService.Create(containerShipViewModel);
+          return  IsValidOperation() ? "true" : "false";
         }
 
         [HttpPost]
@@ -62,7 +69,7 @@ namespace OCTM.UI.Web.Controllers
         public IActionResult Create(ContainerShipViewModel containerShipViewModel)
         {
             if (!ModelState.IsValid) return View(containerShipViewModel);
-            _containerShipAppService.Register(containerShipViewModel);
+            _containerShipAppService.Create(containerShipViewModel);
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "ContainerShip Registered!";

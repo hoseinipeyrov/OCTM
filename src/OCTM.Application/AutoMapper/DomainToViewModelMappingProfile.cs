@@ -9,6 +9,8 @@ namespace OCTM.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Customer, CustomerViewModel>();
+            CreateMap<ContainerShip, ContainerShipViewModel>();
+
         }
     }
 }

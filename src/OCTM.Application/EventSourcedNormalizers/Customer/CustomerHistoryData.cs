@@ -1,12 +1,12 @@
-﻿namespace OCTM.Application.EventSourcedNormalizers
+﻿namespace OCTM.Application.EventSourcedNormalizers.Customer
 {
-    public class ContainerShipHistoryData
+    public class CustomerHistoryData
     {
         public string Action { get; set; }
         public string Id { get; set; }
         public string Name { get; set; }
-        public int Capacity { get; set; }
-        public string Color { get; set; }
+        public string Email { get; set; }
+        public string BirthDate { get; set; }
         public string When { get; set; }
         public string Who { get; set; }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using OCTM.Application.EventSourcedNormalizers;
+using OCTM.Application.EventSourcedNormalizers.ContainerShip;
 using OCTM.Application.Interfaces;
 using OCTM.Application.ViewModels;
 using OCTM.Domain.Commands;
@@ -40,10 +40,10 @@ namespace OCTM.Application.Services
             return _mapper.Map<ContainerShipViewModel>(_containerShipRepository.GetById(id));
         }
 
-        public void Register(ContainerShipViewModel containerShipViewModel)
+        public void Create(ContainerShipViewModel containerShipViewModel)
         {
-            var registerCommand = _mapper.Map<RegisterNewContainerShipCommand>(containerShipViewModel);
-            Bus.SendCommand(registerCommand);
+            var createCommand = _mapper.Map<CreateNewContainerShipCommand>(containerShipViewModel);
+            Bus.SendCommand(createCommand);
         }
 
         public void Update(ContainerShipViewModel containerShipViewModel)

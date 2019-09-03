@@ -12,7 +12,7 @@ using MediatR;
 namespace OCTM.Domain.CommandHandlers
 {
     public class ContainerShipCommandHandler : CommandHandler,
-        IRequestHandler<RegisterNewContainerShipCommand, bool>,
+        IRequestHandler<CreateNewContainerShipCommand, bool>,
         IRequestHandler<UpdateContainerShipCommand, bool>,
         IRequestHandler<RemoveContainerShipCommand, bool>
     {
@@ -28,7 +28,7 @@ namespace OCTM.Domain.CommandHandlers
             Bus = bus;
         }
 
-        public Task<bool> Handle(RegisterNewContainerShipCommand message, CancellationToken cancellationToken)
+        public Task<bool> Handle(CreateNewContainerShipCommand message, CancellationToken cancellationToken)
         {
             if (!message.IsValid())
             {

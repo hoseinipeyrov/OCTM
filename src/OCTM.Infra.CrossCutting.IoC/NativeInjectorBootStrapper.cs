@@ -56,7 +56,7 @@ namespace OCTM.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<UpdateCustomerCommand, bool>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveCustomerCommand, bool>, CustomerCommandHandler>();
 
-            services.AddScoped<IRequestHandler<RegisterNewContainerShipCommand, bool>, ContainerShipCommandHandler>();
+            services.AddScoped<IRequestHandler<CreateNewContainerShipCommand, bool>, ContainerShipCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateContainerShipCommand, bool>, ContainerShipCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveContainerShipCommand, bool>, ContainerShipCommandHandler>();
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using OCTM.Application.EventSourcedNormalizers;
+using OCTM.Application.EventSourcedNormalizers.Customer;
 using OCTM.Application.ViewModels;
 
 namespace OCTM.Application.Interfaces

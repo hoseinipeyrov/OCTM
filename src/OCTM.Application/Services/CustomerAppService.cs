@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using OCTM.Application.EventSourcedNormalizers;
+using OCTM.Application.EventSourcedNormalizers.Customer;
 using OCTM.Application.Interfaces;
 using OCTM.Application.ViewModels;
 using OCTM.Domain.Commands;
